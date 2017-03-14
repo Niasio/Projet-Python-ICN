@@ -59,12 +59,13 @@ def axey(a,b):
         down()
 
 def quadrillage():
-    reset()
+    width(1)
     speed("fastest")
     axex(0,700)
     axey(0,-1000)
     up()
     goto(0,0)
+    rt(270)
     down()
 
 ################################################################################
@@ -92,7 +93,144 @@ def déplacement():
 ################################################################################
 ################################################################################
 
+def cathedrale():
+    reset()
+    width(3)
+    up()
+    goto(100,0)
+    down()
+    lt(90)
+    forward(175)
+
+    up()
+    goto(-100,0)
+    down()
+
+    forward(175)
+    up()
+    goto(73.5,0)
+
+    down()
+    circle(73.5)
+    up()
+    goto(80.25,0)
+    lt(180)
+    down()
+
+    circle(-80.25,180)
+    up()
+    goto(-80.25,0)
+    down()
+    circle(-160.5,60 )
+    up()
+
+    goto(80.25,0)
+    lt(90)
+    down()
+    #circle(160.5,60)
+    print(heading())
+    lt(240)
+    lt(90)
+
+    up()
+    goto(80.25,0)
+    down()
+    circle(160.5,60 )
+    rt(240)
+    rt(90)
+    up()
+    goto(100,0)
+    down()
+    rt(270)
+    forward(175)
+    lt(90)
+    print(heading())
+    up()
+    goto(-100,0)
+    down()
+    rt(90)
+    forward(175)
+
+    rt(90)
+    forward(50)
+    rt(90)
+    forward(350)
+    rt(180)
+    forward(350)
+    rt(90)
+
+    def b():
+        circle(5,180)
+        forward(300)
+        circle(5,180)
+        forward(300)
+    b()
+
+    rt(90)
+    forward(350)
+    lt(90)
+
+    b()
+
+    up()
+    goto(150,-175)
+    down()
+    rt(90)
+    forward(350)
+
+    up()
+    goto(150,-175)
+    down()
+    rt(180)
+    forward(300)
+    up()
+    goto(-150,-175)
+    down()
+
+    forward(300)
+    lt(90)
+    forward(100)
+    up()
+    goto(100,175)
+    down()
+    lt(90)
+    forward(80)
+    up()
+    goto(-100,175)
+    down()
+    forward(80)
+    rt(30)
+    forward(200)
+    rt(120)
+    forward(200)
+
+    up()
+    goto(150,175)
+    down()
+    print(heading())
+    lt(60)
+    lt(90)
+    forward(80)
+    up()
+    goto(-150,175)
+    down()
+    print(heading())
+    forward(80)
+
+    rt(30)
+    forward(300)
+    rt(120)
+    forward(300)
+    print(heading())
+    up()
+    goto(150,175)
+    down()
+
+################################################################################
+################################################################################
+
 def menu(a,b,c):
+    ht()
     up()
     goto(-100,300)
     down()
@@ -126,6 +264,12 @@ def menu(a,b,c):
     color("#ecf0f1")
     write("C - Coloriage", font=("Arial", 25, "normal"))
 
+    up()
+    color("black")
+    goto(0,0)
+    rt(270)
+    down()
+
 ################################################################################
 ################################################################################
 
@@ -135,6 +279,7 @@ menu(0,25,300)
 ################################################################################
 
 onkey(quadrillage,"a")
+onkey(cathedrale,"b")
 onkey(déplacement,"c")
 listen()
 
