@@ -14,6 +14,7 @@ from turtle import *
 
 #taille = int(input("Taille Quadrillage = "))
 taille = 20
+angle = 30
 
 ################################################################################
 ################################################################################
@@ -232,6 +233,33 @@ def cathedrale():
 ################################################################################
 ################################################################################
 
+def arbreentier():
+    color("black")
+    down()
+    def arbre1partie(n, longueur):
+        if n == 0:
+            color("red")
+            fd(longueur)
+            backward(longueur)
+            color("black")
+        else :
+            width(n)
+            forward(longueur/3)
+            left(angle)
+            arbre1partie(n-1 , longueur/3 * 2)
+            right(2*angle)
+            arbre1partie(n-1 , longueur/3 * 2)
+            lt(angle)
+            back(longueur/3)
+
+    lt(90)
+    ht()
+    arbre1partie(11,500)
+    st()
+
+################################################################################
+################################################################################
+
 def menu(a,b,c):
     ht()
     up()
@@ -268,6 +296,12 @@ def menu(a,b,c):
     write("C - Coloriage", font=("Arial", 25, "normal"))
 
     up()
+    goto(-400,100)
+    down()
+    color("#ecf0f1")
+    write("D - Arbre", font=("Arial", 25, "normal"))
+
+    up()
     color("black")
     goto(0,0)
     rt(heading())
@@ -284,6 +318,7 @@ menu(0,25,300)
 onkey(quadrillage,"a")
 onkey(cathedrale,"b")
 onkey(déplacement,"c")
+onkey(arbreentier,"d")
 listen()
 
 ################################################################################
