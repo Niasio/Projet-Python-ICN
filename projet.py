@@ -5,14 +5,11 @@
         #      Créer par Jimmy Fontaine et Thomas Blanquet     #
         #               Création en Libre Accès                #
         #                       GitHub:                        #
-        #
-        #
+        #      https://github.com/Niasio/Projet-Python-ICN     #
+        #                                                      #
         ########################################################
 
 """
-
-
-
 from turtle import *
 
 #taille = int(input("Taille Quadrillage = "))
