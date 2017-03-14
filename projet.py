@@ -59,13 +59,15 @@ def axey(a,b):
         down()
 
 def quadrillage():
+    color("black")
+    rt(heading())
     width(1)
     speed("fastest")
     axex(0,700)
     axey(0,-1000)
     up()
     goto(0,0)
-    rt(270)
+    rt(heading())
     down()
 
 ################################################################################
@@ -82,6 +84,7 @@ def switchuppen(a=0, b=0):
         begin_fill()
 
 def déplacement():
+    st()
     speed(5)
     shape("circle")
     shapesize(1)
@@ -267,7 +270,7 @@ def menu(a,b,c):
     up()
     color("black")
     goto(0,0)
-    rt(270)
+    rt(heading())
     down()
 
 ################################################################################
