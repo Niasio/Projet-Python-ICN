@@ -13,7 +13,6 @@
 from turtle import *
 
 #taille = int(input("Taille Quadrillage = "))
-taille = 20
 angle = 30
 
 ################################################################################
@@ -58,6 +57,10 @@ def axey(a,b):
         up()
         goto(b,700)
         down()
+
+def taille():
+    taille = int(input("Taille Quadrillage = "))
+    quadrillage()
 
 def quadrillage():
     color("black")
@@ -315,7 +318,7 @@ menu(0,25,300)
 ################################################################################
 ################################################################################
 
-onkey(quadrillage,"a")
+onkey(taille,"a")
 onkey(cathedrale,"b")
 onkey(déplacement,"c")
 onkey(arbreentier,"d")
@@ -328,5 +331,3 @@ mainloop()
 
 ################################################################################
 ################################################################################
-
-exitonclick()
