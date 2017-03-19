@@ -12,9 +12,10 @@
 """
 from turtle import *
 
-#taille = int(input("Taille Quadrillage = "))
 taille = 20
 angle = 30
+
+title("ICN -- Projet Python")
 
 ################################################################################
 ################################################################################
@@ -91,6 +92,7 @@ def déplacement():
     shapesize(1)
     width(3)
     switchuppen()
+    ondrag(goto,1)
     onscreenclick(goto,1)
     onscreenclick(switchuppen,3)
 
@@ -98,7 +100,6 @@ def déplacement():
 ################################################################################
 
 def cathedrale():
-    reset()
     width(3)
     up()
     goto(100,0)
@@ -263,7 +264,7 @@ def arbreentier():
 def menu(a,b,c):
     ht()
     up()
-    goto(-100,300)
+    goto(-630,500)
     down()
     width(5)
     color("#16a085")
@@ -278,25 +279,25 @@ def menu(a,b,c):
     end_fill()
 
     up()
-    goto(-400,250)
+    goto(-930,450)
     down()
     color("#ecf0f1")
     write("A - Quadrillage", font=("Arial", 25, "normal"))
 
     up()
-    goto(-400,200)
+    goto(-930,400)
     down()
     color("#ecf0f1")
     write("B - Cathédrale", font=("Arial", 25, "normal"))
 
     up()
-    goto(-400,150)
+    goto(-930,350)
     down()
     color("#ecf0f1")
     write("C - Coloriage", font=("Arial", 25, "normal"))
 
     up()
-    goto(-400,100)
+    goto(-930,300)
     down()
     color("#ecf0f1")
     write("D - Arbre", font=("Arial", 25, "normal"))
