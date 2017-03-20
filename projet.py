@@ -41,6 +41,9 @@ tarbre.ht()
 tmenu = Turtle()
 tmenu.ht()
 
+tmenu1 = Turtle()
+tmenu1.ht()
+
 ################################################################################
 ################################################################################
 
@@ -123,37 +126,46 @@ def switchuppen(a=0, b=0):
 
 
 def menudessin(a,b,c):
-    tmenu.up()
-    tmenu.goto(950,180)
-    tmenu.down()
-    tmenu.width(5)
-    tmenu.color("#16a085")
-    tmenu.fillcolor("#1abc9c")
-    tmenu.begin_fill()
+    tmenu1.up()
+    tmenu1.goto(930,500)
+    tmenu1.down()
+    tmenu1.width(5)
+    tmenu1.color("#16a085")
+    tmenu1.fillcolor("#1abc9c")
+    tmenu1.begin_fill()
     while(a<5):
-        tmenu.rt(45)
-        tmenu.forward(b)
-        tmenu.rt(45)
-        tmenu.forward(c)
+        tmenu1.rt(45)
+        tmenu1.forward(b)
+        tmenu1.rt(45)
+        tmenu1.forward(c)
         a=a+1
-    tmenu.end_fill()
+    tmenu1.end_fill()
 
-    tmenu.up()
-    tmenu.goto(630,450)
-    tmenu.down()
-    tmenu.color("#ecf0f1")
-    tmenu.write("F1 - Changer la Couleur", font=("Arial", 20, "normal"))
+    tmenu1.up()
+    tmenu1.goto(630,450)
+    tmenu1.down()
+    tmenu1.color("#ecf0f1")
+    tmenu1.write("F1 - Changer la Couleur", font=("Arial", 20, "normal"))
 
-    tmenu.up()
-    tmenu.goto(630,400)
-    tmenu.down()
-    tmenu.color("#ecf0f1")
-    tmenu.write("F2 - Changer la Taille", font=("Arial", 20, "normal"))
+    tmenu1.up()
+    tmenu1.goto(630,400)
+    tmenu1.down()
+    tmenu1.color("#ecf0f1")
+    tmenu1.write("F2 - Changer la Taille", font=("Arial", 20, "normal"))
 
-    tmenu.up()
-    tmenu.color("black")
-    tmenu.goto(0,0)
-    tmenu.down()
+    tmenu1.up()
+    tmenu1.goto(630,350)
+    tmenu1.down()
+    tmenu1.color("#ecf0f1")
+    tmenu1.write("F11 - Cacher le Menu", font=("Arial", 20, "normal"))
+
+    tmenu1.up()
+    tmenu1.color("black")
+    tmenu1.goto(0,0)
+    tmenu1.down()
+
+def cachemenucolor():
+    tmenu1.clear()
 
 def déplacement():
     global taillepen
@@ -173,6 +185,7 @@ def déplacement():
     onscreenclick(switchuppen,3)
     onkey(changecolor, "F1")
     onkey(changetaille, "F2")
+    onkey(cachemenucolor, "F11")
 
 
 ################################################################################
