@@ -2,6 +2,8 @@
 
 <hr>
 
+<p>Plus de 600 lignes de codes</p>
+
 <h3>Développeurs : </h3>
 
 <ul>
