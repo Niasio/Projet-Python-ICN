@@ -25,288 +25,362 @@ speed("fastest")
 ################################################################################
 ################################################################################
 
-#Valeur conseillée: a=5 b=1 c=2
-def ellipse(a,b,c):
-    shape("circle")
-    shapesize(a,b,c)
+ht()
+
+tquadrillage = Turtle()
+tquadrillage.ht()
+
+tcathe = Turtle()
+tcathe.ht()
+
+tarbre = Turtle()
+tarbre.ht()
+
+tmenu = Turtle()
+tmenu.ht()
 
 ################################################################################
 ################################################################################
 
 #Valeur conseillée: a=0 b=700
 def axex(a,b):
-    up()
-    goto(-1000,b)
-    down()
+    tquadrillage.up()
+    tquadrillage.goto(-1000,b)
+    tquadrillage.down()
     while(a<1000):
-        forward(2500)
+        tquadrillage.forward(2500)
         b=b-taille
         a=a+10
-        up()
-        goto(-1000,b)
-        down()
+        tquadrillage.up()
+        tquadrillage.goto(-1000,b)
+        tquadrillage.down()
 
 #Valeur conseillée: a=0 b=-1000
 def axey(a,b):
-    up()
-    goto(-1000,b)
-    down()
-    right(90)
+    tquadrillage.up()
+    tquadrillage.goto(-1000,b)
+    tquadrillage.down()
+    tquadrillage.right(90)
     while(a<1000):
-        forward(2500)
+        tquadrillage.forward(2500)
         b=b+taille
         a=a+10
-        up()
-        goto(b,700)
-        down()
+        tquadrillage.up()
+        tquadrillage.goto(b,700)
+        tquadrillage.down()
 
 def quadrillage():
-    color("black")
-    rt(heading())
-    width(1)
-    speed("fastest")
+    tquadrillage.color("black")
+    tquadrillage.width(1)
+    tquadrillage.speed("fastest")
     axex(0,700)
     axey(0,-1000)
-    up()
-    goto(0,0)
-    rt(heading())
-    down()
+    tquadrillage.up()
+    tquadrillage.goto(0,0)
+    tquadrillage.seth(90)
+    tquadrillage.down()
 
 ################################################################################
 ################################################################################
+
+def changecolor(x=0, y=0):
+    global colordown
+
+    colordown = colordown[1:]+colordown[:1]
+    color(colordown[0])
+
+def changetaille(x=0, y=0):
+    global taillepen
+
+    taillepen = taillepen[1:]+taillepen[:1]
+    width(taillepen[0])
 
 def switchuppen(a=0, b=0):
+    global colordown
+
     if pen()["pendown"]:
         end_fill()
         up()
-        color("#3498db")
+        color("#95a5a6")
     else:
         down()
-        color("#2980b9")
+        colordown=["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e",
+                    "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1"]
+        color(colordown[0])
         begin_fill()
 
+
+def menudessin(a,b,c):
+    tmenu.up()
+    tmenu.goto(950,180)
+    tmenu.down()
+    tmenu.width(5)
+    tmenu.color("#16a085")
+    tmenu.fillcolor("#1abc9c")
+    tmenu.begin_fill()
+    while(a<5):
+        tmenu.rt(45)
+        tmenu.forward(b)
+        tmenu.rt(45)
+        tmenu.forward(c)
+        a=a+1
+    tmenu.end_fill()
+
+    tmenu.up()
+    tmenu.goto(630,450)
+    tmenu.down()
+    tmenu.color("#ecf0f1")
+    tmenu.write("F1 - Changer la Couleur", font=("Arial", 20, "normal"))
+
+    tmenu.up()
+    tmenu.goto(630,400)
+    tmenu.down()
+    tmenu.color("#ecf0f1")
+    tmenu.write("F2 - Changer la Taille", font=("Arial", 20, "normal"))
+
+    tmenu.up()
+    tmenu.color("black")
+    tmenu.goto(0,0)
+    tmenu.down()
+
 def déplacement():
+    global taillepen
+
+    taillepen=["1","2","3","4","5","6","7","8","9","10"]
+
+    menudessin(0,25,300)
+    seth(90)
     st()
     speed(5)
     shape("circle")
     shapesize(1)
-    width(3)
+    width(taillepen[0])
     switchuppen()
     ondrag(goto,1)
     onscreenclick(goto,1)
     onscreenclick(switchuppen,3)
+    onkey(changecolor, "F1")
+    onkey(changetaille, "F2")
+
 
 ################################################################################
 ################################################################################
 
 def cathedrale():
-    width(3)
-    up()
-    goto(100,0)
-    down()
-    lt(90)
-    forward(175)
+    tcathe.seth(0)
+    tcathe.width(3)
+    tcathe.up()
+    tcathe.goto(100,0)
+    tcathe.down()
+    tcathe.lt(90)
+    tcathe.forward(175)
 
-    up()
-    goto(-100,0)
-    down()
+    tcathe.up()
+    tcathe.goto(-100,0)
+    tcathe.down()
 
-    forward(175)
-    up()
-    goto(73.5,0)
+    tcathe.forward(175)
+    tcathe.up()
+    tcathe.goto(73.5,0)
 
-    down()
-    circle(73.5)
-    up()
-    goto(80.25,0)
-    lt(180)
-    down()
+    tcathe.down()
+    tcathe.circle(73.5)
+    tcathe.up()
+    tcathe.goto(80.25,0)
+    tcathe.lt(180)
+    tcathe.down()
 
-    circle(-80.25,180)
-    up()
-    goto(-80.25,0)
-    down()
-    circle(-160.5,60 )
-    up()
+    tcathe.circle(-80.25,180)
+    tcathe.up()
+    tcathe.goto(-80.25,0)
+    tcathe.down()
+    tcathe.circle(-160.5,60 )
+    tcathe.up()
 
-    goto(80.25,0)
-    lt(90)
-    down()
+    tcathe.goto(80.25,0)
+    tcathe.lt(90)
+    tcathe.down()
     #circle(160.5,60)
-    print(heading())
-    lt(240)
-    lt(90)
+    print(tcathe.heading())
+    tcathe.lt(240)
+    tcathe.lt(90)
 
-    up()
-    goto(80.25,0)
-    down()
-    circle(160.5,60 )
-    rt(240)
-    rt(90)
-    up()
-    goto(100,0)
-    down()
-    rt(270)
-    forward(175)
-    lt(90)
-    print(heading())
-    up()
-    goto(-100,0)
-    down()
-    rt(90)
-    forward(175)
+    tcathe.up()
+    tcathe.goto(80.25,0)
+    tcathe.down()
+    tcathe.circle(160.5,60 )
+    tcathe.rt(240)
+    tcathe.rt(90)
+    tcathe.up()
+    tcathe.goto(100,0)
+    tcathe.down()
+    tcathe.rt(270)
+    tcathe.forward(175)
+    tcathe.lt(90)
+    print(tcathe.heading())
+    tcathe.up()
+    tcathe.goto(-100,0)
+    tcathe.down()
+    tcathe.rt(90)
+    tcathe.forward(175)
 
-    rt(90)
-    forward(50)
-    rt(90)
-    forward(350)
-    rt(180)
-    forward(350)
-    rt(90)
+    tcathe.rt(90)
+    tcathe.forward(50)
+    tcathe.rt(90)
+    tcathe.forward(350)
+    tcathe.rt(180)
+    tcathe.forward(350)
+    tcathe.rt(90)
 
     def b():
-        circle(5,180)
-        forward(300)
-        circle(5,180)
-        forward(300)
+        tcathe.circle(5,180)
+        tcathe.forward(300)
+        tcathe.circle(5,180)
+        tcathe.forward(300)
     b()
 
-    rt(90)
-    forward(350)
-    lt(90)
+    tcathe.rt(90)
+    tcathe.forward(350)
+    tcathe.lt(90)
 
     b()
 
-    up()
-    goto(150,-175)
-    down()
-    rt(90)
-    forward(350)
+    tcathe.up()
+    tcathe.goto(150,-175)
+    tcathe.down()
+    tcathe.rt(90)
+    tcathe.forward(350)
 
-    up()
-    goto(150,-175)
-    down()
-    rt(180)
-    forward(300)
-    up()
-    goto(-150,-175)
-    down()
+    tcathe.up()
+    tcathe.goto(150,-175)
+    tcathe.down()
+    tcathe.rt(180)
+    tcathe.forward(300)
+    tcathe.up()
+    tcathe.goto(-150,-175)
+    tcathe.down()
 
-    forward(300)
-    lt(90)
-    forward(100)
-    up()
-    goto(100,175)
-    down()
-    lt(90)
-    forward(80)
-    up()
-    goto(-100,175)
-    down()
-    forward(80)
-    rt(30)
-    forward(200)
-    rt(120)
-    forward(200)
+    tcathe.forward(300)
+    tcathe.lt(90)
+    tcathe.forward(100)
+    tcathe.up()
+    tcathe.goto(100,175)
+    tcathe.down()
+    tcathe.lt(90)
+    tcathe.forward(80)
+    tcathe.up()
+    tcathe.goto(-100,175)
+    tcathe.down()
+    tcathe.forward(80)
+    tcathe.rt(30)
+    tcathe.forward(200)
+    tcathe.rt(120)
+    tcathe.forward(200)
 
-    up()
-    goto(150,175)
-    down()
-    print(heading())
-    lt(60)
-    lt(90)
-    forward(80)
-    up()
-    goto(-150,175)
-    down()
-    print(heading())
-    forward(80)
+    tcathe.up()
+    tcathe.goto(150,175)
+    tcathe.down()
+    print(tcathe.heading())
+    tcathe.lt(60)
+    tcathe.lt(90)
+    tcathe.forward(80)
+    tcathe.up()
+    tcathe.goto(-150,175)
+    tcathe.down()
+    print(tcathe.heading())
+    tcathe.forward(80)
 
-    rt(30)
-    forward(300)
-    rt(120)
-    forward(300)
-    print(heading())
-    up()
-    goto(150,175)
-    down()
+    tcathe.rt(30)
+    tcathe.forward(300)
+    tcathe.rt(120)
+    tcathe.forward(300)
+    print(tcathe.heading())
+    tcathe.up()
+    tcathe.goto(150,175)
+    tcathe.down()
 
 ################################################################################
 ################################################################################
 
+#Arbre Fractal
 def arbreentier():
-    color("black")
-    down()
-    def arbre1partie(n, longueur):
-        if n == 0:
-            color("red")
-            fd(longueur)
-            backward(longueur)
-            color("black")
-        else :
-            width(n)
-            forward(longueur/3)
-            left(angle)
-            arbre1partie(n-1 , longueur/3 * 2)
-            right(2*angle)
-            arbre1partie(n-1 , longueur/3 * 2)
-            lt(angle)
-            back(longueur/3)
 
-    lt(90)
-    ht()
-    arbre1partie(11,500)
-    st()
+    tarbre.seth(0)
+
+    tarbre.up()
+    tarbre.goto(pos())
+    tarbre.down()
+
+    def arbrepartie(n, longueur):
+        if n == 0:
+            tarbre.color("red")
+            tarbre.fd(longueur)
+            tarbre.backward(longueur)
+            tarbre.color("black")
+        else :
+            tarbre.width(n)
+            tarbre.forward(longueur/3)
+            tarbre.left(angle)
+            arbrepartie(n-1 , longueur/3 * 2)
+            tarbre.right(2*angle)
+            arbrepartie(n-1 , longueur/3 * 2)
+            tarbre.lt(angle)
+            tarbre.back(longueur/3)
+
+    tarbre.lt(90)
+    tarbre.ht()
+    arbrepartie(11,500)
 
 ################################################################################
 ################################################################################
 
 def menu(a,b,c):
-    ht()
-    up()
-    goto(-630,500)
-    down()
-    width(5)
-    color("#16a085")
-    fillcolor("#1abc9c")
-    begin_fill()
+
+    delay(0)
+
+    tmenu.up()
+    tmenu.goto(-630,500)
+    tmenu.down()
+    tmenu.width(5)
+    tmenu.color("#16a085")
+    tmenu.fillcolor("#1abc9c")
+    tmenu.begin_fill()
     while(a<5):
-        rt(45)
-        forward(b)
-        rt(45)
-        forward(c)
+        tmenu.rt(45)
+        tmenu.forward(b)
+        tmenu.rt(45)
+        tmenu.forward(c)
         a=a+1
-    end_fill()
+    tmenu.end_fill()
 
-    up()
-    goto(-930,450)
-    down()
-    color("#ecf0f1")
-    write("A - Quadrillage", font=("Arial", 25, "normal"))
+    tmenu.up()
+    tmenu.goto(-930,450)
+    tmenu.down()
+    tmenu.color("#ecf0f1")
+    tmenu.write("A - Quadrillage", font=("Arial", 25, "normal"))
 
-    up()
-    goto(-930,400)
-    down()
-    color("#ecf0f1")
-    write("B - Cathédrale", font=("Arial", 25, "normal"))
+    tmenu.up()
+    tmenu.goto(-930,400)
+    tmenu.down()
+    tmenu.color("#ecf0f1")
+    tmenu.write("B - Cathédrale", font=("Arial", 25, "normal"))
 
-    up()
-    goto(-930,350)
-    down()
-    color("#ecf0f1")
-    write("C - Coloriage", font=("Arial", 25, "normal"))
+    tmenu.up()
+    tmenu.goto(-930,350)
+    tmenu.down()
+    tmenu.color("#ecf0f1")
+    tmenu.write("C - Coloriage", font=("Arial", 25, "normal"))
 
-    up()
-    goto(-930,300)
-    down()
-    color("#ecf0f1")
-    write("D - Arbre", font=("Arial", 25, "normal"))
+    tmenu.up()
+    tmenu.goto(-930,300)
+    tmenu.down()
+    tmenu.color("#ecf0f1")
+    tmenu.write("D - Arbre", font=("Arial", 25, "normal"))
 
-    up()
-    color("black")
-    goto(0,0)
-    rt(heading())
-    down()
+    tmenu.up()
+    tmenu.color("black")
+    tmenu.goto(0,0)
+    tmenu.down()
 
 ################################################################################
 ################################################################################
@@ -329,5 +403,3 @@ mainloop()
 
 ################################################################################
 ################################################################################
-
-exitonclick()
