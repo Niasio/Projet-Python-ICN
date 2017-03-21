@@ -13,6 +13,7 @@
 from turtle import *
 from time import *
 from math import sin, cos, pi
+import math
 
 taille = 20
 angle = 30
@@ -99,6 +100,7 @@ def quadrillage():
 def changecolor(x=0, y=0):
     global colordown
 
+    #Permet de monter la valeur
     colordown = colordown[1:]+colordown[:1]
     color(colordown[0])
 
@@ -119,8 +121,7 @@ def switchuppen(a=0, b=0):
     else:
         down()
         colordown=["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e",
-                    "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1",
-                    ]
+                    "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1",]
         color(colordown[0])
         begin_fill()
 
@@ -412,7 +413,7 @@ def etoile1():
     down()
     for i in range(350):
         forward(i)
-        right(98)
+        right(100)
 
 def etoile2():
     up()
@@ -422,11 +423,11 @@ def etoile2():
         forward(i)
         left(216)
 
-def polyspi(angle,inc,side,times):
+def polyspi(angle,varb,longueur,times):
     if times > 0:
-        fd(side)
+        fd(longueur)
         rt(angle)
-        polyspi(angle,inc, (side + inc),(times - 1))
+        polyspi(angle,varb, (longueur + varb),(times - 1))
 
 def figure3():
     up()
@@ -436,7 +437,7 @@ def figure3():
     fd(500)
 
 def rond():
-    def sq():
+    def carre():
         fd(100)
         rt(90)
         fd(100)
@@ -447,7 +448,7 @@ def rond():
         rt(90)
 
     for i in range(72):
-        sq()
+        carre()
         rt(5)
         fd(20)
 
@@ -461,9 +462,27 @@ def rond2():
     for i in range(100):
         x1=r*sin(t);  y1=r*cos(t)
         x2=r*sin(t+n);y2=r*cos(t+n)
-        penup();  goto(x1,y1)
-        pendown();goto(x2,y2)
+        penup();
+        goto(x1,y1)
+        pendown();
+        goto(x2,y2)
         t+=inc
+
+def fonctionsinus():
+  x = -math.pi
+  y = math.sin(x)
+  coordX = x * 100
+  coordY = y * 100
+  up()
+  goto(coordX, coordY)
+  down()
+  while x < math.pi:
+    x = x + 0.01
+    y = math.sin(x)
+    coordX, coordY = x * 100, y * 100
+    goto(coordX, coordY)
+  up()
+
 
 def rond3(tdessin,varb,varc):
     listeturtle = [tdessin]
@@ -512,6 +531,10 @@ def dessins():
 
     clear()
     rond2()
+    sleep(2)
+
+    clear()
+    fonctionsinus()
     sleep(2)
 
     clear()
