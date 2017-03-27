@@ -120,9 +120,11 @@ def switchuppen(a=0, b=0):
         color("#95a5a6")
     else:
         down()
+
         colordown=["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e",
-                    "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1",]
+                "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1",]
         color(colordown[0])
+
         begin_fill()
 
 
@@ -490,15 +492,17 @@ def rond3(tdessin,varb,varc):
     for i in range(1,varb):
         vara = tdessin.clone()
         vara.rt(360.0/varb)
+        #Pour rajouter les turtles
         listeturtle.append(vara)
         tdessin = vara
 
     for i in range(varb):
+        #Pour la couleur
         vard = abs(varb/2.0-i)/(varb*.7)
 
         for tdessin in listeturtle:
             tdessin.rt(360./varb)
-            tdessin.pencolor(1-vard,0,vard)
+            tdessin.color(1-vard,0,vard)
             tdessin.fd(varc)
 
 def rond3exe():
@@ -604,9 +608,16 @@ def menu(a,b,c):
     tmenu.color("black")
     tmenu.goto(0,0)
     tmenu.down()
+    tmenu.setheading(0)
 
 def cachemenu():
-    tmenu.clear()
+    if pen()["pendown"]:
+        tmenu.clear()
+        up()
+    else:
+        menu(0,25,300)
+        down()
+
 
 
 ################################################################################
