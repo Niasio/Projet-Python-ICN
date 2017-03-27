@@ -82,6 +82,7 @@ def quadrillage():
     tquadrillage.color("black")
     tquadrillage.width(1)
     tquadrillage.speed("fastest")
+
     axex(0,700)
     axey(0,-1000)
     tquadrillage.up()
@@ -90,7 +91,7 @@ def quadrillage():
     tquadrillage.write("F10 - Cacher le Quadrillage", font=("Arial", 20, "normal"))
     tquadrillage.up()
     tquadrillage.goto(0,0)
-    tquadrillage.seth(90)
+    tquadrillage.seth(0)
     tquadrillage.down()
     onkey(cachequadri, "F10")
 
@@ -166,9 +167,16 @@ def menudessin(a,b,c):
     tmenu1.color("black")
     tmenu1.goto(0,0)
     tmenu1.down()
+    tmenu1.setheading(0)
 
 def cachemenucolor():
-    tmenu1.clear()
+    if pen()["pendown"]:
+        tmenu1.clear()
+        up()
+    else:
+        menudessin(0,25,300)
+        down()
+
 
 def déplacement():
     global taillepen
@@ -497,7 +505,7 @@ def rond3(tdessin,varb,varc):
         tdessin = vara
 
     for i in range(varb):
-        #Pour la couleur
+        #Pour la couleur, color RGB pencolor(r, g, b)
         vard = abs(varb/2.0-i)/(varb*.7)
 
         for tdessin in listeturtle:
