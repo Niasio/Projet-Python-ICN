@@ -164,10 +164,20 @@ def menudessin(a,b,c):
     tmenu1.write("F11 - Cacher le Menu", font=("Arial", 20, "normal"))
 
     tmenu1.up()
+    tmenu1.goto(630,300)
+    tmenu1.down()
+    tmenu1.color("#ecf0f1")
+    tmenu1.write("F3 - Effacer le Contenu", font=("Arial", 20, "normal"))
+
+
+    tmenu1.up()
     tmenu1.color("black")
     tmenu1.goto(0,0)
     tmenu1.down()
     tmenu1.setheading(0)
+
+def gomme():
+    clear()
 
 def cachemenucolor():
     if pen()["pendown"]:
@@ -197,6 +207,7 @@ def déplacement():
     onkey(changecolor, "F1")
     onkey(changetaille, "F2")
     onkey(cachemenucolor, "F11")
+    onkey(gomme, "F3")
 
 
 ################################################################################
@@ -204,7 +215,12 @@ def déplacement():
 
 def cathedrale():
     tquadrillage.speed(1)
+    tcathe.color("#7f8c8d")
     tcathe.width(3)
+    tcathe.up()
+    tcathe.setheading(0)
+    tcathe.goto(0,0)
+    tcathe.down()
     tcathe.up()
     tcathe.goto(100,0)
     tcathe.down()
@@ -237,7 +253,7 @@ def cathedrale():
     tcathe.lt(90)
     tcathe.down()
     #circle(160.5,60)
-    print(heading())
+
     tcathe.lt(240)
     tcathe.lt(90)
 
@@ -253,7 +269,7 @@ def cathedrale():
     tcathe.rt(270)
     tcathe.forward(175)
     tcathe.lt(90)
-    print(heading())
+    print(tcathe.heading())
     tcathe.up()
     tcathe.goto(-100,0)
     tcathe.down()
@@ -268,18 +284,20 @@ def cathedrale():
     tcathe.forward(350)
     tcathe.rt(90)
 
-    def b():
+    def boite1():
+        tcathe.begin_fill()
         tcathe.circle(5,180)
         tcathe.forward(300)
         tcathe.circle(5,180)
         tcathe.forward(300)
-    b()
+        tcathe.end_fill()
+    boite1()
 
     tcathe.rt(90)
     tcathe.forward(350)
     tcathe.lt(90)
 
-    b()
+    boite1()
 
     tcathe.up()
     tcathe.goto(150,-175)
@@ -316,21 +334,21 @@ def cathedrale():
     tcathe.up()
     tcathe.goto(150,175)
     tcathe.down()
-    print(heading())
+
     tcathe.lt(60)
     tcathe.lt(90)
     tcathe.forward(80)
     tcathe.up()
     tcathe.goto(-150,175)
     tcathe.down()
-    print(heading())
+    print(tcathe.heading())
     tcathe.forward(80)
 
     tcathe.rt(30)
     tcathe.forward(300)
     tcathe.rt(120)
     tcathe.forward(300)
-    print(heading())
+    print(tcathe.heading())
     tcathe.up()
     tcathe.goto(150,175)
     tcathe.down()
@@ -339,7 +357,7 @@ def cathedrale():
     tcathe.forward(650)
     tcathe.rt(90)
     tcathe.forward(300)
-    b()
+    boite1()
     tcathe.setheading(0)
     tcathe.forward(50)
     tcathe.lt(90)
@@ -350,20 +368,29 @@ def cathedrale():
     tcathe.rt(180)
     tcathe.forward(300)
 
-    def c():
+    def cIN():
+        tcathe.begin_fill()
         tcathe.setheading(180)
         tcathe.circle(5,180)
         tcathe.forward(50)
         tcathe.circle(5,180)
         tcathe.forward(50)
+        tcathe.end_fill()
 
+    #######################
     tcathe.up()
     tcathe.goto(150,-175)
     tcathe.down()
     tcathe.setheading(0)
     tcathe.rt(30)
     tcathe.forward(100)
-    c()
+
+    cIN()
+    tcathe.lt(90)
+    tcathe.forward(50)
+    tcathe.setheading(150)
+    tcathe.forward(100)
+
     tcathe.setheading(0)
     tcathe.up()
     tcathe.goto(150,175)
@@ -371,13 +398,120 @@ def cathedrale():
 
     tcathe.rt(30)
     tcathe.forward(100)
+    print(tcathe.pos())
     tcathe.setheading(0)
-    c()
+
+    cIN()
+    tcathe.lt(90)
+    tcathe.forward(50)
+    tcathe.setheading(150)
+    tcathe.forward(100)
+
     tcathe.setheading(0)
+    tcathe.up()
+    tcathe.goto((236.60,125.00))
+    tcathe.down()
+
     tcathe.rt(90)
     tcathe.forward(600)
+    print(tcathe.pos())
     tcathe.rt(90)
-    c()
+    cIN()
+    tcathe.setheading(0)
+    tcathe.forward(50)
+    tcathe.lt(90)
+    tcathe.forward(600)
+    tcathe.setheading(120)
+    tcathe.forward(50)
+    tcathe.lt(120)
+    tcathe.forward(50)
+
+    ######################
+    tcathe.up()
+    tcathe.goto(-150,-175)
+    tcathe.down()
+    tcathe.setheading(180)
+    tcathe.lt(30)
+    tcathe.forward(100)
+    tcathe.setheading(180)
+    tcathe.forward(50)
+    cIN()
+    tcathe.setheading(0)
+    tcathe.forward(50)
+    tcathe.rt(90)
+    tcathe.forward(50)
+    tcathe.setheading(30)
+    tcathe.forward(100)
+
+    tcathe.setheading(180)
+    tcathe.up()
+    tcathe.goto(-150,175)
+    tcathe.down()
+
+    tcathe.lt(30)
+    tcathe.forward(100)
+    print(tcathe.pos())
+    tcathe.setheading(180)
+
+    tcathe.setheading(180)
+    tcathe.forward(50)
+    cIN()
+    tcathe.setheading(0)
+    tcathe.forward(50)
+    tcathe.rt(90)
+    tcathe.forward(50)
+    tcathe.setheading(30)
+    tcathe.forward(100)
+
+    tcathe.setheading(0)
+    tcathe.up()
+    tcathe.goto((-236.60,125.00))
+    tcathe.setheading(180)
+    tcathe.forward(50)
+    tcathe.down()
+
+    tcathe.lt(90)
+    tcathe.forward(600)
+    tcathe.lt(90)
+    cIN()
+    tcathe.setheading(0)
+    tcathe.forward(50)
+    tcathe.lt(90)
+    tcathe.forward(600)
+    tcathe.setheading(120)
+    tcathe.forward(50)
+    tcathe.lt(120)
+    tcathe.forward(50)
+
+    ######################
+    tcathe.up()
+    tcathe.goto(73.5,0)
+
+    tcathe.down()
+    tcathe.setheading(135)
+    tcathe.forward(103.9)
+    tcathe.lt(90)
+    tcathe.forward(103.9)
+    tcathe.lt(90)
+    tcathe.forward(103.9)
+    tcathe.lt(90)
+    tcathe.forward(103.9)
+
+    tcathe.up()
+    tcathe.goto(0,-475)
+    tcathe.down()
+    tcathe.setheading(0)
+    tcathe.forward(50)
+    tcathe.lt(90)
+    tcathe.forward(100)
+    tcathe.lt(30)
+    tcathe.forward(100)
+    tcathe.lt(120)
+    tcathe.forward(100)
+    tcathe.setheading(0)
+    tcathe.rt(90)
+    tcathe.forward(100)
+
 
     sleep(5)
     tcathe.clear()
