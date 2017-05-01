@@ -47,6 +47,9 @@ tmenu.ht()
 tmenu1 = Turtle()
 tmenu1.ht()
 
+tsave = Turtle()
+tsave.ht()
+
 ################################################################################
 ################################################################################
 
@@ -109,10 +112,12 @@ def changecolor(x=0, y=0):
 
 def changetaille(x=0, y=0):
     global taillepen
+    global tailleshape
 
     taillepen = taillepen[1:]+taillepen[:1]
+    tailleshape = tailleshape[1:]+tailleshape[:1]
     width(taillepen[0])
-    shapesize(int(taillepen[0]))
+    shapesize(float(tailleshape[0]))
 
 def switchuppen(a=0, b=0):
     global colordown
@@ -171,6 +176,12 @@ def menudessin(a,b,c):
     tmenu1.color("#ecf0f1")
     tmenu1.write("F3 - Effacer le Contenu", font=("Arial", 20, "normal"))
 
+    tmenu1.up()
+    tmenu1.goto(630,250)
+    tmenu1.down()
+    tmenu1.color("#ecf0f1")
+    tmenu1.write("F4 - Sauvegarder", font=("Arial", 20, "normal"))
+
 
     tmenu1.up()
     tmenu1.color("black")
@@ -180,6 +191,29 @@ def menudessin(a,b,c):
 
 def gomme():
     clear()
+
+def save():
+    name = input("Nom du fichier ?")
+
+    tmenu1.clear()
+    tmenu.clear()
+    ht()
+
+    ts = getscreen()
+
+    ts.getcanvas().postscript(file= name + ".eps")
+
+    st()
+    menu(0,25,300)
+    menudessin(0,25,300)
+
+    tsave.up()
+    tsave.goto(-150, 450)
+    tsave.down()
+
+    tsave.write("Le fichier s'est sauvegarder !", font=("Arial", 20, "normal"))
+    sleep(2)
+    tsave.clear()
 
 def cachemenucolor():
     if tmenu1.pen()["pendown"]:
@@ -192,8 +226,10 @@ def cachemenucolor():
 
 def déplacement():
     global taillepen
+    global tailleshape
 
     taillepen=["1","2","3","4","5","6","7","8","9","10"]
+    tailleshape=["1.1","1.2","1.3","1.4","1.5","1.6","1.7","1.8","1.9","2"]
 
     menudessin(0,25,300)
     seth(90)
@@ -210,6 +246,7 @@ def déplacement():
     onkey(changetaille, "F2")
     onkey(cachemenucolor, "F11")
     onkey(gomme, "F3")
+    onkey(save, "F4")
 
 
 ################################################################################
