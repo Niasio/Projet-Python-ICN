@@ -182,12 +182,12 @@ def gomme():
     clear()
 
 def cachemenucolor():
-    if pen()["pendown"]:
+    if tmenu1.pen()["pendown"]:
         tmenu1.clear()
-        up()
+        tmenu1.up()
     else:
+        tmenu1.down()
         menudessin(0,25,300)
-        down()
 
 
 def déplacement():
