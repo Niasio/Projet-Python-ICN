@@ -195,6 +195,8 @@ def gomme():
 def save():
     name = input("Nom du fichier ?")
 
+    chrono1 = clock()
+
     tmenu1.clear()
     tmenu.clear()
     ht()
@@ -207,11 +209,16 @@ def save():
     menu(0,25,300)
     menudessin(0,25,300)
 
+    chrono2 = clock()
+    temps = chrono2-chrono1
+
+    print(temps)
+
     tsave.up()
-    tsave.goto(-150, 450)
+    tsave.goto(-380, 450)
     tsave.down()
 
-    tsave.write("Le fichier s'est sauvegarder !", font=("Arial", 20, "normal"))
+    tsave.write("Le fichier s'est sauvegarder en " + str(temps) + " sec. !", font=("Arial", 20, "normal"))
     sleep(2)
     tsave.clear()
 
