@@ -201,9 +201,12 @@ def save():
     tmenu.clear()
     ht()
 
-    ts = getscreen()
+    try:
+        ts = getscreen()
 
-    ts.getcanvas().postscript(file= name + ".eps")
+        ts.getcanvas().postscript(file= name + ".eps")
+    except:
+        print("Erreur lors de la sauvegarde !")
 
     st()
     menu(0,25,300)
@@ -254,6 +257,7 @@ def déplacement():
     onkey(cachemenucolor, "F11")
     onkey(gomme, "F3")
     onkey(save, "F4")
+    onkey(apercu, "F5")
 
 
 ################################################################################
