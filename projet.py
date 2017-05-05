@@ -678,32 +678,37 @@ def fonctionsinus():
   up()
 
 
-def rond3(tdessin,varb,varc):
-    listeturtle = [tdessin]
-
-    for i in range(1,varb):
-        vara = tdessin.clone()
-        vara.rt(360.0/varb)
-        #Pour rajouter les turtles
-        listeturtle.append(vara)
-        tdessin = vara
-
-    for i in range(varb):
-        #Pour la couleur, color RGB pencolor(r, g, b)
-        vard = abs(varb/2.0-i)/(varb*.7)
-
-        for tdessin in listeturtle:
-            tdessin.rt(360./varb)
-            tdessin.color(1-vard,0,vard)
-            tdessin.fd(varc)
-
-def rond3exe():
+def rond3():
     tdessin=Turtle()
-
     tdessin.ht()
     tdessin.speed(0)
 
-    rond3(tdessin,36,19)
+    listeturtle = [tdessin]
+
+    for i in range(36):
+        tclone = tdessin.clone()
+        tclone.rt(10)
+        #Pour rajouter les turtles
+        listeturtle.append(tclone)
+        tdessin = tclone
+        tdessin.clear()
+
+    for i in range(36):
+        #Pour la couleur, color RGB pencolor(r, g, b)
+        colorrond = abs(18-i)/(36*.7)
+
+        for tdessin in listeturtle:
+            tdessin.rt(10)
+            tdessin.color(1-colorrond,0,colorrond)
+            tdessin.fd(19)
+
+    sleep(2)
+
+    #On efface toute la liste des turtles
+    for i in range(1,36):
+        for tdessin in listeturtle:
+            tclone.clear()
+            tdessin.clear()
 
 def dessins():
     color("black")
@@ -734,8 +739,7 @@ def dessins():
     sleep(2)
 
     clear()
-    rond3exe()
-
+    rond3()
 
 ################################################################################
 ################################################################################
