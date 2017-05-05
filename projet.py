@@ -106,9 +106,12 @@ def quadrillage():
 def changecolor(x=0, y=0):
     global colordown
 
-    #Permet de monter la valeur
-    colordown = colordown[1:]+colordown[:1]
-    color(colordown[0])
+    if pen()["pendown"]:
+        #Permet de monter la valeur
+        colordown = colordown[1:]+colordown[:1]
+        color(colordown[0])
+    else:
+        color("#95a5a6")
 
 def changetaille(x=0, y=0):
     global taillepen
@@ -165,7 +168,7 @@ def menudessin(a,b,c):
     tmenu1.write("F2 - Changer la Taille", font=("Arial", 20, "normal"))
 
     tmenu1.up()
-    tmenu1.goto(630,350)
+    tmenu1.goto(630,200)
     tmenu1.down()
     tmenu1.color("#ecf0f1")
     tmenu1.write("F11 - Cacher le Menu", font=("Arial", 20, "normal"))
@@ -174,13 +177,13 @@ def menudessin(a,b,c):
     tmenu1.goto(630,300)
     tmenu1.down()
     tmenu1.color("#ecf0f1")
-    tmenu1.write("F3 - Effacer le Contenu", font=("Arial", 20, "normal"))
+    tmenu1.write("F4 - Effacer le Contenu", font=("Arial", 20, "normal"))
 
     tmenu1.up()
     tmenu1.goto(630,250)
     tmenu1.down()
     tmenu1.color("#ecf0f1")
-    tmenu1.write("F4 - Sauvegarder", font=("Arial", 20, "normal"))
+    tmenu1.write("F5 - Sauvegarder", font=("Arial", 20, "normal"))
 
 
     tmenu1.up()
@@ -191,6 +194,7 @@ def menudessin(a,b,c):
 
 def gomme():
     clear()
+    tarbre.clear()
 
 def save():
     name = input("Nom du fichier ?")
@@ -255,10 +259,8 @@ def déplacement():
     onkey(changecolor, "F1")
     onkey(changetaille, "F2")
     onkey(cachemenucolor, "F11")
-    onkey(gomme, "F3")
-    onkey(save, "F4")
-    onkey(apercu, "F5")
-
+    onkey(gomme, "F4")
+    onkey(save, "F5")
 
 ################################################################################
 ################################################################################
@@ -569,9 +571,10 @@ def cathedrale():
 ################################################################################
 ################################################################################
 
+
+
 #Arbre Fractal
 def arbreentier():
-
     tarbre.seth(0)
 
     tarbre.up()
@@ -694,7 +697,7 @@ def rond3():
         tdessin.clear()
 
     for i in range(36):
-        #Pour la couleur, color RGB pencolor(r, g, b)
+        #Pour la couleur, color RGB pencolor(r, g, b) en 1.0
         colorrond = abs(18-i)/(36*.7)
 
         for tdessin in listeturtle:
@@ -713,6 +716,8 @@ def rond3():
 def dessins():
     color("black")
     ht()
+
+    tarbre.clear()
 
     clear()
     etoile1()
