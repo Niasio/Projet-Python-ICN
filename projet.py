@@ -2,7 +2,7 @@
 
         ########################################################
         #                                                      #
-        #      Créer par Jimmy Fontaine et Thomas Blanquet     #
+        #      Créé par Jimmy Fontaine et Thomas Blanquet      #
         #               Création en Libre Accès                #
         #                       GitHub:                        #
         #      https://github.com/Niasio/Projet-Python-ICN     #
@@ -14,6 +14,7 @@ from turtle import *
 from time import *
 from math import sin, cos, pi
 import math
+import random
 
 taille = 20
 angle = 30
@@ -167,6 +168,12 @@ def menudessin(a,b,c):
     tmenu1.color("#ecf0f1")
     tmenu1.write("F2 - Changer la Taille", font=("Arial", 20, "normal"))
 
+##    tmenu1.up()
+##    tmenu1.goto(630,350)
+##    tmenu1.down()
+##    tmenu1.color("#ecf0f1")
+##    tmenu1.write("F3 - Changer le Fond", font=("Arial", 20, "normal"))
+
     tmenu1.up()
     tmenu1.goto(630,200)
     tmenu1.down()
@@ -258,6 +265,7 @@ def déplacement():
     onscreenclick(switchuppen,3)
     onkey(changecolor, "F1")
     onkey(changetaille, "F2")
+    #onkey(•••, "F3")
     onkey(cachemenucolor, "F11")
     onkey(gomme, "F4")
     onkey(save, "F5")
@@ -563,7 +571,31 @@ def cathedrale():
     tcathe.setheading(0)
     tcathe.rt(90)
     tcathe.forward(100)
+    tcathe.setheading(0)
+    tcathe.forward(50)
+    tcathe.lt(90)
+    tcathe.forward(181)
 
+
+    tcathe.up()
+    tcathe.goto(0,0)
+    tcathe.down()
+    for count in range(24):
+        tcathe.up()
+        tcathe.goto(0,0)
+        tcathe.down()
+        tcathe.circle(42.5,120)
+        tcathe.right(30)
+    tcathe.up()
+    tcathe.goto(0,0)
+    tcathe.down()
+
+    for count in range(24):
+        tcathe.up()
+        tcathe.goto(0,0)
+        tcathe.down()
+        tcathe.circle(-42.5,120)
+        tcathe.left(30)
 
     sleep(5)
     tcathe.clear()
@@ -835,6 +867,7 @@ onkey(déplacement,"c")
 onkey(arbreentier,"d")
 onkey(dessins,"e")
 onkey(cachemenu,"f")
+
 listen()
 
 ################################################################################
